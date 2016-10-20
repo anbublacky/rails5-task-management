@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @todo.name
+p
+  strong Description:
+  = @todo.description
+p
+  strong Task:
+  = @todo.task.name
+p
+  strong User:
+  = @todo.user.name
+p
+  strong Ends at:
+  = @todo.ends_at
+
+= link_to 'Edit', edit_task_todo_path(@task,@todo)
+'|
+= link_to 'Back', task_todos_path(@task,@todo)
