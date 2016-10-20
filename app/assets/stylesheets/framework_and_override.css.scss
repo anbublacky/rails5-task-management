@@ -36,7 +36,6 @@ img {
 // to make views framework-neutral
 main {
   @extend .container;
-  background-color: #eee;
   padding-bottom: 80px;
   width: 100%;
   margin-top: 51px; // accommodate the navbar
@@ -78,9 +77,7 @@ section {
   border-color: rgba(0,0,0,0.2);
   }
 
-a:visited {
-  color: white !important;
-}
+
 a:hover {
   background-color: none !important;
 }
