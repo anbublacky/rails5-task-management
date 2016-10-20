@@ -1,0 +1,26 @@
+h1.center 
+  = @task.name + " - Todo's"
+  span.pull-right= link_to 'New Todo', new_task_todo_path(@task), class: 'btn btn-default black'
+table.table
+  thead
+    tr
+      th Name
+      th Description
+      th Status
+      th Assigned to
+      th Ends at
+      th
+      th
+      th
+
+  tbody
+    - @task.todos.each do |todo|
+      tr
+        td = todo.name
+        td = todo.description
+        td = todo.status
+        td = todo.user.name
+        td = todo.ends_at
+        td = link_to 'Show', task_todo_path(@task, todo)
+        td = link_to 'Edit', edit_task_todo_path(@task, todo)
+        td = link_to 'Destroy', task_todo_path(@task, todo), data: { confirm: 'Are you sure?' }, method: :delete

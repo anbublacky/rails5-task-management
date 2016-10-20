@@ -1,0 +1,22 @@
+h1
+  | Listing tasks
+  span.pull-right= link_to 'New Task', new_task_path, class: 'btn btn-default black'
+
+table.table
+  thead
+    tr
+      th Name
+      th
+      th
+      th
+
+  tbody
+    - @tasks.each do |task|
+      tr
+        td = task.name
+        td = link_to 'Show', task
+        td = link_to 'Edit', edit_task_path(task)
+        td = link_to 'Destroy', task, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
