@@ -2,7 +2,7 @@ h1 Editing todo
 
 == render 'form'
 
-= link_to 'Show', @todo
+= link_to 'Show', task_todo_path(@todo)
 '|
-= link_to 'Back', todos_path
+= link_to 'Back', task_path(@task)
 
