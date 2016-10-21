@@ -4,6 +4,7 @@
   .form-inputs
     = f.input :name
     = f.input :description
+    = f.input :status, collection: Todo.statuses.keys if @todo.persisted?
     = f.association :task
     = f.association :user, collection: User.order(:name), prompt: 'Select User'
     = f.input :ends_at

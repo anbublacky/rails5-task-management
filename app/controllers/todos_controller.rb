@@ -30,7 +30,7 @@ class TodosController < ApplicationController
 
   def update
     @todo.update(todo_params)
-    respond_with(@todo)
+    respond_with(@task)
   end
 
   def destroy
@@ -51,6 +51,6 @@ class TodosController < ApplicationController
     end
 
     def todo_params
-      params.require(:todo).permit(:name, :description, :task_id, :user_id, :ends_at)
+      params.require(:todo).permit(:name, :description, :task_id, :user_id, :ends_at, :status)
     end
 end

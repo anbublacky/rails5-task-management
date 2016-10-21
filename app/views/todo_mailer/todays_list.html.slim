@@ -1,1 +1,7 @@
-| This is a test mail
+h1 Created todo list on #{DateTime.now.strftime('%d-%m-%Y')}
+- @created_list.each do |cl|
+  p=cl.name
+
+h1 Completed todo list
+- @completed_list.each do |ul|
+  p=ul.name
