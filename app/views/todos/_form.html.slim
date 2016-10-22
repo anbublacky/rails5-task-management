@@ -5,7 +5,7 @@
     = f.input :name
     = f.input :description
     = f.input :status, collection: Todo.statuses.keys if @todo.persisted?
-    = f.association :task
+    = f.hidden_field :task_id, value: @task.id
     = f.association :user, collection: User.order(:name), prompt: 'Select User'
     = f.input :ends_at
 
