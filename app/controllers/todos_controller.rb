@@ -43,14 +43,16 @@ class TodosController < ApplicationController
   end
 
   private
-    def set_task
-      @task = Task.find_by_id(params[:task_id])
-    end
-    def set_todo
-      @todo = Todo.find(params[:id])
-    end
 
-    def todo_params
-      params.require(:todo).permit(:name, :description, :task_id, :user_id, :ends_at, :status)
-    end
+  def set_task
+    @task = Task.find_by_id(params[:task_id])
+  end
+  
+  def set_todo
+    @todo = Todo.find(params[:id])
+  end
+
+  def todo_params
+    params.require(:todo).permit(:name, :description, :task_id, :user_id, :ends_at, :status)
+  end
 end

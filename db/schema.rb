@@ -13,98 +13,98 @@
 ActiveRecord::Schema.define(version: 20161022022630) do
 
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "active_admin_comments", force: :cascade do |t|
-    t.string   "namespace"
-    t.text     "body"
-    t.string   "resource_id",   null: false
-    t.string   "resource_type", null: false
-    t.string   "author_type"
-    t.integer  "author_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
-    t.index ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
-    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
+  create_table 'active_admin_comments', force: :cascade do |t|
+    t.string   'namespace'
+    t.text     'body'
+    t.string   'resource_id',   null: false
+    t.string   'resource_type', null: false
+    t.string   'author_type'
+    t.integer  'author_id'
+    t.datetime 'created_at'
+    t.datetime 'updated_at'
+    t.index ['author_type', 'author_id'], name: 'index_active_admin_comments_on_author_type_and_author_id', using: :btree
+    t.index ['namespace'], name: 'index_active_admin_comments_on_namespace', using: :btree
+    t.index ['resource_type', 'resource_id'], name: 'index_active_admin_comments_on_resource_type_and_resource_id', using: :btree
   end
 
-  create_table "admin_users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.index ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
-    t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
+  create_table 'admin_users', force: :cascade do |t|
+    t.string   'email',                  default: '', null: false
+    t.string   'encrypted_password',     default: '', null: false
+    t.string   'reset_password_token'
+    t.datetime 'reset_password_sent_at'
+    t.datetime 'remember_created_at'
+    t.integer  'sign_in_count',          default: 0,  null: false
+    t.datetime 'current_sign_in_at'
+    t.datetime 'last_sign_in_at'
+    t.string   'current_sign_in_ip'
+    t.string   'last_sign_in_ip'
+    t.datetime 'created_at',                          null: false
+    t.datetime 'updated_at',                          null: false
+    t.index ['email'], name: 'index_admin_users_on_email', unique: true, using: :btree
+    t.index ['reset_password_token'], name: 'index_admin_users_on_reset_password_token', unique: true, using: :btree
   end
 
-  create_table "audits", force: :cascade do |t|
-    t.integer  "auditable_id"
-    t.string   "auditable_type"
-    t.integer  "associated_id"
-    t.string   "associated_type"
-    t.integer  "user_id"
-    t.string   "user_type"
-    t.string   "username"
-    t.string   "action"
-    t.text     "audited_changes"
-    t.integer  "version",         default: 0
-    t.string   "comment"
-    t.string   "remote_address"
-    t.string   "request_uuid"
-    t.datetime "created_at"
-    t.index ["associated_id", "associated_type"], name: "associated_index", using: :btree
-    t.index ["auditable_id", "auditable_type"], name: "auditable_index", using: :btree
-    t.index ["created_at"], name: "index_audits_on_created_at", using: :btree
-    t.index ["request_uuid"], name: "index_audits_on_request_uuid", using: :btree
-    t.index ["user_id", "user_type"], name: "user_index", using: :btree
+  create_table 'audits', force: :cascade do |t|
+    t.integer  'auditable_id'
+    t.string   'auditable_type'
+    t.integer  'associated_id'
+    t.string   'associated_type'
+    t.integer  'user_id'
+    t.string   'user_type'
+    t.string   'username'
+    t.string   'action'
+    t.text     'audited_changes'
+    t.integer  'version',         default: 0
+    t.string   'comment'
+    t.string   'remote_address'
+    t.string   'request_uuid'
+    t.datetime 'created_at'
+    t.index ['associated_id', 'associated_type'], name: 'associated_index', using: :btree
+    t.index ['auditable_id', 'auditable_type'], name: 'auditable_index', using: :btree
+    t.index ['created_at'], name: 'index_audits_on_created_at', using: :btree
+    t.index ['request_uuid'], name: 'index_audits_on_request_uuid', using: :btree
+    t.index ['user_id', 'user_type'], name: 'user_index', using: :btree
   end
 
-  create_table "tasks", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'tasks', force: :cascade do |t|
+    t.string   'name'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "todos", force: :cascade do |t|
-    t.string   "name"
-    t.text     "description"
-    t.integer  "status",      default: 0
-    t.integer  "task_id"
-    t.integer  "user_id"
-    t.datetime "ends_at"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.index ["task_id"], name: "index_todos_on_task_id", using: :btree
-    t.index ["user_id"], name: "index_todos_on_user_id", using: :btree
+  create_table 'todos', force: :cascade do |t|
+    t.string   'name'
+    t.text     'description'
+    t.integer  'status',      default: 0
+    t.integer  'task_id'
+    t.integer  'user_id'
+    t.datetime 'ends_at'
+    t.datetime 'created_at',              null: false
+    t.datetime 'updated_at',              null: false
+    t.index ['task_id'], name: 'index_todos_on_task_id', using: :btree
+    t.index ['user_id'], name: 'index_todos_on_user_id', using: :btree
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "name"
-    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  create_table 'users', force: :cascade do |t|
+    t.string   'email',                  default: '', null: false
+    t.string   'encrypted_password',     default: '', null: false
+    t.string   'reset_password_token'
+    t.datetime 'reset_password_sent_at'
+    t.datetime 'remember_created_at'
+    t.integer  'sign_in_count',          default: 0,  null: false
+    t.datetime 'current_sign_in_at'
+    t.datetime 'last_sign_in_at'
+    t.string   'current_sign_in_ip'
+    t.string   'last_sign_in_ip'
+    t.datetime 'created_at',                          null: false
+    t.datetime 'updated_at',                          null: false
+    t.string   'name'
+    t.index ['email'], name: 'index_users_on_email', unique: true, using: :btree
+    t.index ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true, using: :btree
   end
 
-  add_foreign_key "todos", "tasks"
-  add_foreign_key "todos", "users"
+  add_foreign_key 'todos', 'tasks'
+  add_foreign_key 'todos', 'users'
 end

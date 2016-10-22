@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'pg'
 gem 'puma', '~> 3.0'
@@ -25,8 +24,9 @@ gem 'activeadmin', '~> 1.0.0.pre4'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'active_skin'
 gem 'rufus-scheduler'
-gem "audited", "~> 4.3"
-gem "rails-observers", github: 'rails/rails-observers'
+gem 'audited', '~> 4.3'
+gem 'rails-observers', github: 'rails/rails-observers'
+gem 'rubocop', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
