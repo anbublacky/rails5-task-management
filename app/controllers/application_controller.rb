@@ -1,5 +1,5 @@
-require "application_responder"
-
+require 'application_responder'
+# Application controller
 class ApplicationController < ActionController::Base
   self.responder = ApplicationResponder
   respond_to :html
@@ -10,6 +10,8 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :password, :password_confirmation])
+    devise_parameter_sanitizer.permit(
+      :sign_up, keys: [:name, :email, :password, :password_confirmation]
+    )
   end
 end

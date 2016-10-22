@@ -1,3 +1,4 @@
+# Todo controller
 class TodosController < ApplicationController
   before_action :set_todo, only: [:show, :edit, :update, :destroy]
   before_action :set_task
@@ -47,12 +48,14 @@ class TodosController < ApplicationController
   def set_task
     @task = Task.find_by_id(params[:task_id])
   end
-  
+
   def set_todo
     @todo = Todo.find(params[:id])
   end
 
   def todo_params
-    params.require(:todo).permit(:name, :description, :task_id, :user_id, :ends_at, :status)
+    params.require(:todo).permit(
+      :name, :description, :task_id, :user_id, :ends_at, :status
+    )
   end
 end
