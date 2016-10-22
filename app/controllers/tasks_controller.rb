@@ -1,3 +1,4 @@
+# Task Controller
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
@@ -38,7 +39,7 @@ class TasksController < ApplicationController
   end
 
   private
-  
+
   def set_task
     @task = Task.find(params[:id])
   end

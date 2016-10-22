@@ -1,6 +1,7 @@
+# Todo Model
 class Todo < ApplicationRecord
   belongs_to :task
   belongs_to :user
-	audited
+  audited
   enum status: { to_be_done: 0, done: 1 }
 end

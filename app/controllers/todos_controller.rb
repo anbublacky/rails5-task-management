@@ -36,7 +36,7 @@ class TodosController < ApplicationController
 
   def destroy
     @todo.destroy
-    respond_with(@todo)
+    respond_with(@task)
   end
 
   def my_todo_list
