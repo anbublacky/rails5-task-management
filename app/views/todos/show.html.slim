@@ -34,5 +34,5 @@
             td = audit.created_at.strftime('%d-%m-%Y')
             td 
               - audit.audited_changes.each do |x|
-                = x[0] + ' - ' + x[1] if ['name', 'description', 'status'].include? x[0]
+                = (x[0] + ' - ' + (x[1].kind_of?(Array) ? x[1][1] : x[1])) if ['name', 'description', 'status'].include? x[0]
                 br
